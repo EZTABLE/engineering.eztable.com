@@ -52,6 +52,77 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-12-13T11:30:40.000Z"><a href="/2013/12/13/setup-runit-in-three-seconds/">Dec 13 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/12/13/setup-runit-in-three-seconds/">setup-runit-in-three-seconds</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3>install runit</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install runit
+</pre></td></tr></table></figure>
+
+<h3>create nessesary folders</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ su<span class="operator"><span class="keyword">do</span> mkdir /etc/service
+</pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ su<span class="operator"><span class="keyword">do</span> mkdir /etc/runit/your_daemon
+</pre></td></tr></table></figure>
+
+<h3>write a <code>run</code> script</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="title">touch</span> /etc/runit/your_daemon/run
+<span class="title">chmod</span> +x /etc/runit/your_daemon/run
+</pre></td></tr></table></figure>
+
+<p>the content would be like this:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="shebang">#!/bin/sh</span> -e
+exec <span class="keyword">echo</span> <span class="string">"hi"</span>
+</pre></td></tr></table></figure>
+
+<h3>make a symlink to <code>/etc/service</code></h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">ln</span> -s /etc/runit/your_daemon /var/service/your_daemon
+</pre></td></tr></table></figure>
+
+<h2>Explanation</h2>
+<p>Two key programs in runit: <code>runsv</code>, <code>runsvdir</code><br><code>runsvdir</code> will monitor the folder: <code>/etc/service/</code></p>
+<ol>
+<li>We can manage each daemon under <code>/etc/runit</code> by creating subfolder</li>
+<li>Make a symlink link to <code>/etc/service/</code></li>
+<li>done</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-12-12T06:05:27.000Z"><a href="/2013/12/12/hello-world/">Dec 12 2013</a></time>
       
       
@@ -96,6 +167,15 @@
   
 
   
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/devops/">devops</a><small>1</small></li>
+  
+  </ul>
+</div>
+
 </aside>
     <div class="clearfix"></div>
   </div>
