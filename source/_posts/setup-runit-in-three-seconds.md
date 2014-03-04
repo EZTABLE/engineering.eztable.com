@@ -36,7 +36,7 @@ exec echo "hi"
 ### make a symlink to `/etc/service`
 
 ```
-ln -s /etc/runit/your_daemon /var/service/your_daemon
+ln -s /etc/runit/your_daemon /etc/service/your_daemon
 ```
 
 ## Explanation
@@ -47,3 +47,7 @@ Two key programs in runit: `runsv`, `runsvdir`
 1. We can manage each daemon under `/etc/runit` by creating subfolder
 2. Make a symlink link to `/etc/service/`
 3. done
+
+## Refs
+1. http://smarden.org/runit/
+2. http://www.techrepublic.com/blog/linux-and-open-source/use-runit-to-supervise-linux-services/
