@@ -92,7 +92,7 @@ exec <span class="keyword">echo</span> <span class="string">"hi"</span>
 
 <h3>make a symlink to <code>/etc/service</code></h3>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">ln</span> -s /etc/runit/your_daemon /var/service/your_daemon
+</pre></td><td class="code"><pre><span class="title">ln</span> -s /etc/runit/your_daemon /etc/service/your_daemon
 </pre></td></tr></table></figure>
 
 <h2>Explanation</h2>
@@ -101,6 +101,11 @@ exec <span class="keyword">echo</span> <span class="string">"hi"</span>
 <li>We can manage each daemon under <code>/etc/runit</code> by creating subfolder</li>
 <li>Make a symlink link to <code>/etc/service/</code></li>
 <li>done</li>
+</ol>
+<h2>Refs</h2>
+<ol>
+<li><a href="http://smarden.org/runit/" target="_blank">http://smarden.org/runit/</a></li>
+<li><a href="http://www.techrepublic.com/blog/linux-and-open-source/use-runit-to-supervise-linux-services/" target="_blank">http://www.techrepublic.com/blog/linux-and-open-source/use-runit-to-supervise-linux-services/</a></li>
 </ol>
 
       
@@ -181,7 +186,7 @@ exec <span class="keyword">echo</span> <span class="string">"hi"</span>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 EZTABLE
+  &copy; 2014 EZTABLE
   
 </div>
 <div class="clearfix"></div></footer>
